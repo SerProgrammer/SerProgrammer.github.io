@@ -127,11 +127,32 @@
 <p>官方给出的定义是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">如果两个页面的协议，端口（如果有指定）和主机都相同，则两个页面具有相同的源。我们也可以把它称为“协议&#x2F;主机&#x2F;端口 tuple”，或简单地叫做“tuple&quot;. (&quot;tuple&quot; ，“元”，是指一些事物组合在一起形成一个整体，比如（1，2）叫二元，（1，2，3）叫三元)</span></pre></td></tr></table></figure>
 
+<p>那我们就可以理解为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">以百度的网址举例： </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.baidu.com:80&#x2F;aa </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F; 或者 http:&#x2F;&#x2F; 协议</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">www.baidu.com 域名</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">80 端口</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">以上3者相同就是同源，如果有其中一个不同就是跨域</span></pre></td></tr></table></figure>
+
+<p>另外同源策略又分为以下两种：</p>
+<ol>
+<li>DOM 同源策略：禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li>
+<li>策略：禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li>
+</ol>
+<p>所以这样我们就可以明白为什么会有同源策略，由于浏览器的限制而产生的，浏览器有《同源策略》的限制<br>同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说 Web 是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。 它的核心就在于它认为自任何站点装载的信赖内容是不安全的。当被浏览器半信半疑的脚本运行在沙箱时，它们应该只被允许访问来自同一站点的资源，而不是那些来自其它站点可能怀有恶意的资源。</p>
+<h6 id="SO-什么是跨域的问题我们也就明白了，-跨域的产生就是由于-浏览器-同源策略的限制，限制了不能跨域访问-http请求"><a href="#SO-什么是跨域的问题我们也就明白了，-跨域的产生就是由于-浏览器-同源策略的限制，限制了不能跨域访问-http请求" class="headerlink" title="SO!  什么是跨域的问题我们也就明白了， 跨域的产生就是由于 浏览器 同源策略的限制，限制了不能跨域访问 http请求"></a>SO!  什么是跨域的问题我们也就明白了， 跨域的产生就是由于 浏览器 同源策略的限制，限制了不能跨域访问 http请求</h6><h4 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h4><ul>
+<li>俗话说的好，上有政策，下有对策。那么浏览器限制了我们的跨域请求，那如果我们需要访问不同源的时候该怎么办呢？还请跟我一起往下看~~</li>
+</ul>
+<h5 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h5><p>jsop是利用资源不跨域的特性，同源策略只是限制了xhr对象发送的请求，并没有限制资源加载，所以jsonp利用了这个特性可以解决浏览器的跨域(需要后端配合)</p>
+<p>如何使用jsonp解决跨域：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>， 动态生成script标签,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>， 动态添加script标签的src属性</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>， 动态生成回调函数的名称，并且动态生成回调函数必须是在Window上的</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>， 动态给src属性添加callback参数，告知后端是jsonp请求，并且需要后端配合返回一个js语法函数调用</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>， 返回格式callbackFn(参数)</span></pre></td></tr></table></figure>
+
+<ul>
+<li>优点： 解决了跨域， 兼容</li>
+<li>缺点:  只能get请求， 不能捕获错误状态</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" data-id="ck3s6277o0002qwtw5bmr1g7d" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" data-id="ck3s6yvm300027stw0qwc1r6o" class="article-share-link">Share</a>
       
 
       
@@ -173,7 +194,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" data-id="ck3s6277l0001qwtw35sxh8ay" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" data-id="ck3s6yvly00017stwhu0z0w51" class="article-share-link">Share</a>
       
 
       
