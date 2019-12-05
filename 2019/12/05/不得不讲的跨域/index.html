@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>开博大吉 | serprogrammer</title>
+  <title>不得不讲的跨域 | serprogrammer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天也算是值得庆祝的一天！因为我也终于开通了属于自己的博客，只为了记录自己平时所学习的东西，也是为了和大家能够一起分享！哈哈， 向大佬们看齐！！！">
+  <meta name="description" content="我的第一篇博客就从跨域说起，尝试着把自己所学习的分享给大家！ 什么是跨域 单是从字面意义上来讲的话， 跨是跨越种族、跨越性别…… 域是领域、域名。   在说跨域之前呢想要先说下《同源策略》  何为同源？ 官方给出的定义是： 1如果两个页面的协议，端口（如果有指定）和主机都相同，则两个页面具有相同的源。我们也可以把它称为“协议&amp;#x2F;主机&amp;#x2F;端口 tuple”，或简单地叫做“tuple&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开博大吉">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89&#x2F;index.html">
+<meta property="og:title" content="不得不讲的跨域">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F&#x2F;index.html">
 <meta property="og:site_name" content="serprogrammer">
-<meta property="og:description" content="今天也算是值得庆祝的一天！因为我也终于开通了属于自己的博客，只为了记录自己平时所学习的东西，也是为了和大家能够一起分享！哈哈， 向大佬们看齐！！！">
+<meta property="og:description" content="我的第一篇博客就从跨域说起，尝试着把自己所学习的分享给大家！ 什么是跨域 单是从字面意义上来讲的话， 跨是跨越种族、跨越性别…… 域是领域、域名。   在说跨域之前呢想要先说下《同源策略》  何为同源？ 官方给出的定义是： 1如果两个页面的协议，端口（如果有指定）和主机都相同，则两个页面具有相同的源。我们也可以把它称为“协议&amp;#x2F;主机&amp;#x2F;端口 tuple”，或简单地叫做“tuple&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-05T03:22:02.024Z">
+<meta property="og:updated_time" content="2019-12-05T03:34:02.541Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -93,10 +93,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-开博大吉" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-不得不讲的跨域" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="article-date">
-  <time datetime="2019-12-05T02:11:30.000Z" itemprop="datePublished">2019-12-05</time>
+    <a href="/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" class="article-date">
+  <time datetime="2019-12-05T03:24:05.000Z" itemprop="datePublished">2019-12-05</time>
 </a>
     
   </div>
@@ -107,7 +107,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      开博大吉
+      不得不讲的跨域
     </h1>
   
 
@@ -115,13 +115,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天也算是值得庆祝的一天！<br>因为我也终于开通了属于自己的博客，只为了记录自己平时所学习的东西，也是为了和大家能够一起分享！<br>哈哈， 向大佬们看齐！！！</p>
+        <p>我的第一篇博客就从跨域说起，尝试着把自己所学习的分享给大家！</p>
+<h4 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h4><ul>
+<li>单是从字面意义上来讲的话， 跨是跨越种族、跨越性别…… 域是领域、域名。</li>
+</ul>
+<ul>
+<li>在说跨域之前呢想要先说下《同源策略》</li>
+</ul>
+<p>何为同源？</p>
+<p>官方给出的定义是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">如果两个页面的协议，端口（如果有指定）和主机都相同，则两个页面具有相同的源。我们也可以把它称为“协议&#x2F;主机&#x2F;端口 tuple”，或简单地叫做“tuple&quot;. (&quot;tuple&quot; ，“元”，是指一些事物组合在一起形成一个整体，比如（1，2）叫二元，（1，2，3）叫三元)</span></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" data-id="ck3s6277l0001qwtw35sxh8ay" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" data-id="ck3s6277o0002qwtw5bmr1g7d" class="article-share-link">Share</a>
       
 
       
@@ -131,15 +140,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          不得不讲的跨域
-        
-      </div>
-    </a>
   
+    <a href="/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">开博大吉</div>
+    </a>
   
 </nav>
 
