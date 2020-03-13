@@ -118,61 +118,17 @@
       
         <h2 id="javascript-篇"><a href="#javascript-篇" class="headerlink" title="javascript 篇"></a>javascript 篇</h2><h5 id="介绍一下DOM0-DOM2-DOM2"><a href="#介绍一下DOM0-DOM2-DOM2" class="headerlink" title="介绍一下DOM0, DOM2, DOM2"></a>介绍一下DOM0, DOM2, DOM2</h5><ul>
 <li>DOM0:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">btn.onClikc&#x3D;func btn.onclick&#x3D;null</span></pre></td></tr></table></figure></li>
-<li>DOM2<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">btn.addEventListener(&#39;click&#39;, fun, flase)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">btn.removeEventListener(&quot;click&quot;, func, false)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">btn.attachEvent(&quot;onclick&quot;, func)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">btn.detchEvent(&quot;onClick&quot;, func)</span></pre></td></tr></table></figure></li>
-<li>DOM3:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">eventUtil.addListener(input, &#39;textInput&#39;, func)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; eventUtil是自定义对象，textinput是DOM3级事件</span></pre></td></tr></table></figure>
-<h2 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h2></li>
-<li>捕获  冒泡   目标</li>
-<li>js的冒泡（Bubbling Event)和事件的捕获（Capture Event）的区别：</li>
-<li>冒泡型事件： 事件按照从特定的事件目标到最不特定的事件目标对象的顺序触发</li>
-<li>捕获型事件： 事件从最不精确的对象（document对象）开始触发，然后到最精确（也可以在窗口级别捕获事件，不过必须由开发人员特别指定）</li>
-<li>DOM事件流： 同时支持两种事件模型： 捕获型事件和冒泡型事件，但是，捕获型事件先发生，两种事件流会触及DOM中所有的对象，从document对象开始，也在document对象结束</li>
-<li>事件捕获： 当你使用事件捕获时，父级元素先触发，子级元素后触发，及div先触发，p后触发</li>
-<li>事件冒泡： 当你使用事件冒泡时，子级元素先触发，父级元素后触发，及p先触发，div后触发</li>
-<li>阻止冒泡：<br>在W3c中，使用stopPropagation（）<br>在IE下设置cancelBubble=true<br>在捕获的过程中stopPropagation()后，后面的冒泡过程也不会发生看，阻止捕获</li>
-<li>阻止事件的默认行为： 例如：click  a 后的跳转</li>
-<li>在W3C中使用preventDefault（）</li>
-<li>在IE下设置window.event.returnValue = false</li>
-</ul>
-<h3 id="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么"><a href="#一个页面从输入URL到页面加载显示完成，这个过程都发生了什么" class="headerlink" title="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么"></a>一个页面从输入URL到页面加载显示完成，这个过程都发生了什么</h3><h6 id="详细版本"><a href="#详细版本" class="headerlink" title="详细版本"></a>详细版本</h6><ol>
-<li>浏览器会开启一个线程来处理这个请求，对URL分析判断如果是http协议就按照Web方式来处理</li>
-<li>调用浏览器内核中的对应方法，比如webview中的loadURL方法</li>
-<li>通过DNS解析获取网址的IP地址，设置UA等信息发出的第二个get请求</li>
-<li>进行http协议会话，客户端发送报头（请求报头）</li>
-<li>进入到web服务器上的web  server  如Apache、Tomcat、nodejs等服务器</li>
-<li>进入部署好的后端应用，如PHP，java，JavaScript、phthon等，找到对应的处理请求</li>
-<li>处理结束反馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，一致则返回304</li>
-<li>浏览器开始下载html文档（响应报头，状态吗200）同时使用缓存</li>
-<li>文档树建立，根据标记请求所需置顶MIME类型的文件（比如css、js)，同时设置了cookie</li>
-<li>页面开始渲染DOM，JS，根据DOM API操作DOM，执行时间绑定等，页面显示完成</li>
-</ol>
-<h6 id="简介版本"><a href="#简介版本" class="headerlink" title="简介版本"></a>简介版本</h6><ol>
-<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求</li>
-<li>服务器交给后台处理完返回数据，浏览器接收文件（HTML,JS,CSS、图像等)</li>
-<li>浏览器对加载到的资源进行语法解析，建立相应的内部数据结构（如HTML的DOM）<br>载入解析到的组员文件，渲染页面完成</li>
-</ol>
-<h4 id="浏览器的渲染原理"><a href="#浏览器的渲染原理" class="headerlink" title="浏览器的渲染原理"></a>浏览器的渲染原理</h4><ul>
-<li>渲染引擎首先通过网络获得所请求文档的内容，通常以8k分块的方式完成，</li>
-<li>解析HTML构建dom树，  –&gt; 构建render树 –&gt;  布局render树   —-&gt;   绘制render树</li>
-<li>DOM Tree： 浏览器将html解析成树形的数据结构</li>
-<li>css Rule Tree: 浏览器新将css解析成树形的数据结构</li>
-<li>Render Tree: Dom 和cssom和合并生成render Tree</li>
-<li>layout: 有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的css定义以及他们的从属关系，从而计算出每个节点在屏幕中的位置</li>
-<li>painting 按照算出来的规则，通过显卡，把内容画到屏幕中的位置</li>
-<li>reflow(回流)：当浏览器发现某个部分发生了点变化影响了布局，需要到回去重新渲染，回流称这个回退的过程叫reflow，reflow会从HTML这个root frame开始递归往下，一次计算所有的节点几何尺寸和位置。reflow几乎是无法避免的。现在界面上流行的一些效果，比如树状目录的折叠、展开（是指上是元素的显示与隐藏）等，都将引起浏览器的reflow。鼠标滑过、点击……只要这些行为引起了页面上某些元素的占位面积，定位方法，编辑等属性的变化，都会引起它内部、周围甚至整个页面的重新渲染。通常我们都无法估测浏览器到底会reflow哪一部分的代码，他们都彼此相互影响着</li>
-<li>repaint（重绘）： 改变某个元素的背景色、文字颜色、边框颜色等等不影响它周围或内部布局的属性时，屏幕的一部分要重画，但是元素的几何尺寸没有变</li>
-<li>注意： </li>
-</ul>
-<ol>
-<li>dispaly: none的节点不会被加入render Tree而visibility：hidden则会，所以，如果某个节点最开始是不显示的，设为display：none是更优的</li>
-<li>dispaly: none 会触发reflow，而visibility：hidden只会触发repaint，因为没有发生位置变化</li>
-<li>有些情况下，比如修改了元素的样式，浏览器并不会立刻reflow或repaint一次，而是会把这样的操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow，但是在有些情况下，比如resize窗口，改变了默认的字体等，对于这些操作，浏览器会马上进行reflow</li>
-</ol>
-
+<li>DOM2</li></ul>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/13/%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7/#more">......</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2020/03/13/%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7/" data-id="ck7puue4200053ctwhkraha94" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2020/03/13/%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7/" data-id="ck7pv4jzi00062ctwg4fj1phc" class="article-share-link">Share</a>
       
 
       
@@ -208,101 +164,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SEO优化技巧"><a href="#SEO优化技巧" class="headerlink" title="SEO优化技巧"></a>SEO优化技巧</h2><h4 id="SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化"><a href="#SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化" class="headerlink" title="SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化"></a>SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化</h4><h2 id="关于meta标签"><a href="#关于meta标签" class="headerlink" title="关于meta标签"></a>关于meta标签</h2><p>meta变迁的作用有： 所有引擎优化（SEO),定义页面使用语言，自动刷新并指向新的页面，实现页面转换时的动态效果，控制页面缓冲，页面定级评价，控制网页显示的窗口等</p>
-<ul>
-<li>meta标签的keywords</li>
-</ul>
-<p><code>&lt;meta name=&quot;Keywords&quot;content=&quot;信息参数&quot;/&gt;</code></p>
-<ul>
-<li>meta标签的keywords的信息参数，代表说明网站的关键词是什么</li>
-<li>eg</li>
-</ul>
-<p><code>&lt;meta name=&quot;keywords&quot; content=&quot;优质课程、智能问答、趣味实践、随心笔记、教育、网易公开课、计算机开发、交互视觉设计、视频教程、交流互动、免费、名师、实用、培训&quot;/&gt;</code></p>
-<ul>
-<li>meta标间的Description</li>
-</ul>
-<p><code>&lt;meta name=&quot;Description&quot;content=&quot;信息参数&quot;/&gt;</code></p>
-<p>meta标签的Description的信息参数，代表说明网站的主要内容，概况是什么</p>
-<p><code>&lt;meta name=&quot;description&quot; content=&quot;云课堂是网易公司研发的一款大型在线教育平台服务，该平台面向学习者提供海量免费、优质课程，创新的个性化学习体验，自由开放的交流互动环境。继网易公开课后，云课堂是网易公司在教育领域的又一重量级产品。&quot;/&gt;</code></p>
-<ul>
-<li>meta标签的Robots</li>
-</ul>
-<p><code>&lt;metaname=&quot;Robots&quot;contect=&quot;信息参数&quot;&gt;</code><br>Robots  代表告诉搜索引擎机器人抓取哪些网页</p>
-<p><code>&lt;meta name=&quot;robots&quot; content=&quot;all&quot;/&gt;</code></p>
-<ul>
-<li>参数说明</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>信息参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>all</td>
-<td>将被检索，且页面上的链接可以查询</td>
-</tr>
-<tr>
-<td>none</td>
-<td>文件将不被检索，且页面上的链接不可以被查询</td>
-</tr>
-<tr>
-<td>index</td>
-<td>文件将被检索</td>
-</tr>
-<tr>
-<td>follow</td>
-<td>页面上的链接可以被查询</td>
-</tr>
-<tr>
-<td>noindex</td>
-<td>文件将不被检索，单页面上的链接可以被查询</td>
-</tr>
-<tr>
-<td>nofollow</td>
-<td>问价将被检索</td>
-</tr>
-</tbody></table>
-<h2 id="其他的SEO优化技巧"><a href="#其他的SEO优化技巧" class="headerlink" title="其他的SEO优化技巧"></a>其他的SEO优化技巧</h2><p>除了meta标签， 我们还应该了解跟多的SEO优化技巧</p>
-<ul>
-<li><p>简化代码结构，更利用搜索引擎分析抓取有用内容，所有js、css采用外联方式，图片采用css精灵，减少请求次数</p>
-</li>
-<li><p>利用布局，把重要的内容HTML代码放在最前，所有引擎抓取HTML内容是从上到下，利用这一特点，可以让主要代码有限读取，广告等不重要的代码放在下面。例如  在坐栏和右栏的代码不变的情况下，值需要改一下样式，利用float：left 和float：right 就可以任意让亮蓝在展现上位置互换，这样可以保证重要的代码在最前，让爬虫最先抓取，同样也适用于多栏的情况</p>
-</li>
-<li><p>每个页面只能出现一次h1标签，h2可以出现多次，H1权重很高，普通认为仅次于title，一般资讯详情也得标题、商品详情也得标题，都放在H1里</p>
-</li>
-</ul>
-<ul>
-<li><p>图片一定要添加alt属性，title属性可选，蜘蛛不认识图片上的内容，只能通过alt属性来判断，如果是商品列表也，所有商品都加了alt和title的话，容易造成堆砌关键词，所以一般都只加alt属性</p>
-</li>
-<li><p>图片大小声明： 如果图片大小不做定义的话，页面需要重新渲染，就会影响到速度</p>
-</li>
-</ul>
-<ul>
-<li><p>非特殊性链接， 链接地址一定要写入herf属性，做过SEO优化的人员都知道，蜘蛛目前对于js的支持很差，基本无法读取里面的链接地址，所用说用click事件是绝对不允许的，特别是一洗重要的导航链接</p>
-</li>
-<li><p>网页结构呈扁平状树型，目录结构不宜过深，每个页面离首页最多点击不超过三次，过深不利于搜索引擎的抓取</p>
-</li>
-<li><p>做好404页面，一般都会加首页链接及错误提示，并测试其返回状态码为404，用户体验友好，可以留住用户不至于直接关闭页面，蜘蛛友好，可以返回抓取其他页面</p>
-</li>
-<li><p>重要内容不要用js输出，猪猪不会读取js里的内容，所以重要内容必须放在HTML里</p>
-</li>
-<li><p>尽量使用ifram框架，搜索引擎不会抓到ifram 里的内容，重要内容不要放在框架中</p>
-</li>
-</ul>
-<h1 id="什么是服务器端渲染"><a href="#什么是服务器端渲染" class="headerlink" title="什么是服务器端渲染"></a>什么是服务器端渲染</h1><h2 id="当前渲染模式"><a href="#当前渲染模式" class="headerlink" title="当前渲染模式"></a>当前渲染模式</h2><p>在前后端分离大规模应用之前，用户请求网页，都是后端先调用数据库，获得数据之后，将数据和页面元素进行拼装，组合成完整的HTML页面，直接返回给浏览器，以便用户浏览</p>
-<p>但由于近几年前后端分离的理念被大规模应用，前后端进行了拆分，并且单页面应用的到了广泛应用（Angular, React, Vue前端三大框架）</p>
-<h2 id="前后端拆分核心理念"><a href="#前后端拆分核心理念" class="headerlink" title="前后端拆分核心理念"></a>前后端拆分核心理念</h2><p>前后端拆分，后端专注于数据接口服务，前端专注接口调用，页面渲染，双剑合璧，相得益彰</p>
-<h2 id="服务器端渲染的优势"><a href="#服务器端渲染的优势" class="headerlink" title="服务器端渲染的优势"></a>服务器端渲染的优势</h2><p>1.首屏加载快<br>相比于加载单页面应用，我只需要加载当前页面的内容，而不需要像React或者Vue一样加载全部的js文件（单页面应用文件加载过大的情况可以使用code spliting来解决）<br>2.SEO优化<br>对于单页面应用，搜索引擎并不能收录到ajax爬取数据之后然后再冬天js渲染出来的页面</p>
-<h2 id="服务器端的劣势"><a href="#服务器端的劣势" class="headerlink" title="服务器端的劣势"></a>服务器端的劣势</h2><p>1.线上拍错不方便<br>如果数据是ajax来进行，出现的问题都能够很方便的通过浏览器控制台来观察。但是如果是服务端渲染，如果一个后台拼接数据的过程中或者组件书写的过程中出现了问题，必须到对用的服务器端（node，java等）去查看线上日志，再分析debug<br>2.职责混杂<br>浏览器和服务器端职责混杂，服务器端在一定程度上还得做前端的页面绘制工作（以前写HTML页面，写完之后再转成jsp，再在里面混写java代码调用数据</p>
-<h2 id="是否应该使用服务器端渲染"><a href="#是否应该使用服务器端渲染" class="headerlink" title="是否应该使用服务器端渲染"></a>是否应该使用服务器端渲染</h2><p>1.以为项目大，首屏加载慢<br>针对于受聘和加载，可以做服务端渲染。但是后期维护很tongue<br>2. SEO优化</p>
-
+        <h2 id="SEO优化技巧"><a href="#SEO优化技巧" class="headerlink" title="SEO优化技巧"></a>SEO优化技巧</h2><h4 id="SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化"><a href="#SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化" class="headerlink" title="SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化"></a>SEO有三条最重要的规律，那就是原创的内容。高质量的外部练级和持之以恒适度的优化</h4><h2 id="关于meta标签"><a href="#关于meta标签" class="headerlink" title="关于meta标签"></a>关于meta标签</h2>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/13/%E5%85%B3%E4%BA%8ESEO%E4%BC%98%E5%8C%96/#more">......</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2020/03/13/%E5%85%B3%E4%BA%8ESEO%E4%BC%98%E5%8C%96/" data-id="ck7puue3y00033ctw5d1f9jgm" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2020/03/13/%E5%85%B3%E4%BA%8ESEO%E4%BC%98%E5%8C%96/" data-id="ck7pv4jzd00032ctw6lt98jw1" class="article-share-link">Share</a>
       
 
       
@@ -348,7 +220,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/30/rereact-infinite-scroller%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck7puue3s00013ctw9e2b8fd2" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/30/rereact-infinite-scroller%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck7pv4jz900012ctw2p0o7vys" class="article-share-link">Share</a>
       
 
       
@@ -397,7 +269,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/23/%E8%81%8A%E8%81%8A%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B/" data-id="ck7puue4b00083ctw5g571s8l" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/23/%E8%81%8A%E8%81%8A%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B/" data-id="ck7pv4jzl00082ctw9pre2peq" class="article-share-link">Share</a>
       
 
       
@@ -443,7 +315,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/19/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86-VUEX/" data-id="ck7puue4800073ctw5tla2rc0" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/19/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86-VUEX/" data-id="ck7pv4jzk00072ctw3vq2ft41" class="article-share-link">Share</a>
       
 
       
@@ -492,7 +364,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" data-id="ck7puue4n00093ctwgndw5dvv" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/05/%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AE%B2%E7%9A%84%E8%B7%A8%E5%9F%9F/" data-id="ck7pv4jzu00092ctw8dm5bebi" class="article-share-link">Share</a>
       
 
       
@@ -543,7 +415,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" data-id="ck7puue4400063ctwdlxz4f6l" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2019/12/05/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" data-id="ck7pv4jzg00052ctw62p4aycm" class="article-share-link">Share</a>
       
 
       
