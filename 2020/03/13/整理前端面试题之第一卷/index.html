@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>整理前端面试题之第一卷 | serprogrammer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="javascript 篇介绍一下DOM0, DOM2, DOM2 DOM0:1btn.onClikc&amp;#x3D;func btn.onclick&amp;#x3D;null DOM21btn.addEventListener(&amp;#39;click&amp;#39;, fun, flase)2btn.removeEventListener(&amp;quot;click&amp;quot;, func, false)3btn.at">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整理前端面试题之第一卷">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;13&#x2F;%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7&#x2F;index.html">
+<meta property="og:site_name" content="serprogrammer">
+<meta property="og:description" content="javascript 篇介绍一下DOM0, DOM2, DOM2 DOM0:1btn.onClikc&amp;#x3D;func btn.onclick&amp;#x3D;null DOM21btn.addEventListener(&amp;#39;click&amp;#39;, fun, flase)2btn.removeEventListener(&amp;quot;click&amp;quot;, func, false)3btn.at">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-13T07:10:56.896Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">serprogrammer</div>
+      
+       <ul class="my-socials">
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">serprogrammer</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-整理前端面试题之第一卷" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/13/%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7/" class="article-date">
+  <time datetime="2020-03-13T07:10:46.000Z" itemprop="datePublished">2020-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      整理前端面试题之第一卷
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="javascript-篇"><a href="#javascript-篇" class="headerlink" title="javascript 篇"></a>javascript 篇</h2><h5 id="介绍一下DOM0-DOM2-DOM2"><a href="#介绍一下DOM0-DOM2-DOM2" class="headerlink" title="介绍一下DOM0, DOM2, DOM2"></a>介绍一下DOM0, DOM2, DOM2</h5><ul>
+<li>DOM0:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">btn.onClikc&#x3D;func btn.onclick&#x3D;null</span></pre></td></tr></table></figure></li>
+<li>DOM2<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">btn.addEventListener(&#39;click&#39;, fun, flase)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">btn.removeEventListener(&quot;click&quot;, func, false)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">btn.attachEvent(&quot;onclick&quot;, func)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">btn.detchEvent(&quot;onClick&quot;, func)</span></pre></td></tr></table></figure></li>
+<li>DOM3:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">eventUtil.addListener(input, &#39;textInput&#39;, func)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; eventUtil是自定义对象，textinput是DOM3级事件</span></pre></td></tr></table></figure>
+<h2 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h2></li>
+<li>捕获  冒泡   目标</li>
+<li>js的冒泡（Bubbling Event)和事件的捕获（Capture Event）的区别：</li>
+<li>冒泡型事件： 事件按照从特定的事件目标到最不特定的事件目标对象的顺序触发</li>
+<li>捕获型事件： 事件从最不精确的对象（document对象）开始触发，然后到最精确（也可以在窗口级别捕获事件，不过必须由开发人员特别指定）</li>
+<li>DOM事件流： 同时支持两种事件模型： 捕获型事件和冒泡型事件，但是，捕获型事件先发生，两种事件流会触及DOM中所有的对象，从document对象开始，也在document对象结束</li>
+<li>事件捕获： 当你使用事件捕获时，父级元素先触发，子级元素后触发，及div先触发，p后触发</li>
+<li>事件冒泡： 当你使用事件冒泡时，子级元素先触发，父级元素后触发，及p先触发，div后触发</li>
+<li>阻止冒泡：<br>在W3c中，使用stopPropagation（）<br>在IE下设置cancelBubble=true<br>在捕获的过程中stopPropagation()后，后面的冒泡过程也不会发生看，阻止捕获</li>
+<li>阻止事件的默认行为： 例如：click  a 后的跳转</li>
+<li>在W3C中使用preventDefault（）</li>
+<li>在IE下设置window.event.returnValue = false</li>
+</ul>
+<h3 id="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么"><a href="#一个页面从输入URL到页面加载显示完成，这个过程都发生了什么" class="headerlink" title="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么"></a>一个页面从输入URL到页面加载显示完成，这个过程都发生了什么</h3><h6 id="详细版本"><a href="#详细版本" class="headerlink" title="详细版本"></a>详细版本</h6><ol>
+<li>浏览器会开启一个线程来处理这个请求，对URL分析判断如果是http协议就按照Web方式来处理</li>
+<li>调用浏览器内核中的对应方法，比如webview中的loadURL方法</li>
+<li>通过DNS解析获取网址的IP地址，设置UA等信息发出的第二个get请求</li>
+<li>进行http协议会话，客户端发送报头（请求报头）</li>
+<li>进入到web服务器上的web  server  如Apache、Tomcat、nodejs等服务器</li>
+<li>进入部署好的后端应用，如PHP，java，JavaScript、phthon等，找到对应的处理请求</li>
+<li>处理结束反馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，一致则返回304</li>
+<li>浏览器开始下载html文档（响应报头，状态吗200）同时使用缓存</li>
+<li>文档树建立，根据标记请求所需置顶MIME类型的文件（比如css、js)，同时设置了cookie</li>
+<li>页面开始渲染DOM，JS，根据DOM API操作DOM，执行时间绑定等，页面显示完成</li>
+</ol>
+<h6 id="简介版本"><a href="#简介版本" class="headerlink" title="简介版本"></a>简介版本</h6><ol>
+<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求</li>
+<li>服务器交给后台处理完返回数据，浏览器接收文件（HTML,JS,CSS、图像等)</li>
+<li>浏览器对加载到的资源进行语法解析，建立相应的内部数据结构（如HTML的DOM）<br>载入解析到的组员文件，渲染页面完成</li>
+</ol>
+<h4 id="浏览器的渲染原理"><a href="#浏览器的渲染原理" class="headerlink" title="浏览器的渲染原理"></a>浏览器的渲染原理</h4><ul>
+<li>渲染引擎首先通过网络获得所请求文档的内容，通常以8k分块的方式完成，</li>
+<li>解析HTML构建dom树，  –&gt; 构建render树 –&gt;  布局render树   —-&gt;   绘制render树</li>
+<li>DOM Tree： 浏览器将html解析成树形的数据结构</li>
+<li>css Rule Tree: 浏览器新将css解析成树形的数据结构</li>
+<li>Render Tree: Dom 和cssom和合并生成render Tree</li>
+<li>layout: 有了Render Tree，浏览器已经能知道网页中有哪些节点、各个节点的css定义以及他们的从属关系，从而计算出每个节点在屏幕中的位置</li>
+<li>painting 按照算出来的规则，通过显卡，把内容画到屏幕中的位置</li>
+<li>reflow(回流)：当浏览器发现某个部分发生了点变化影响了布局，需要到回去重新渲染，回流称这个回退的过程叫reflow，reflow会从HTML这个root frame开始递归往下，一次计算所有的节点几何尺寸和位置。reflow几乎是无法避免的。现在界面上流行的一些效果，比如树状目录的折叠、展开（是指上是元素的显示与隐藏）等，都将引起浏览器的reflow。鼠标滑过、点击……只要这些行为引起了页面上某些元素的占位面积，定位方法，编辑等属性的变化，都会引起它内部、周围甚至整个页面的重新渲染。通常我们都无法估测浏览器到底会reflow哪一部分的代码，他们都彼此相互影响着</li>
+<li>repaint（重绘）： 改变某个元素的背景色、文字颜色、边框颜色等等不影响它周围或内部布局的属性时，屏幕的一部分要重画，但是元素的几何尺寸没有变</li>
+<li>注意： </li>
+</ul>
+<ol>
+<li>dispaly: none的节点不会被加入render Tree而visibility：hidden则会，所以，如果某个节点最开始是不显示的，设为display：none是更优的</li>
+<li>dispaly: none 会触发reflow，而visibility：hidden只会触发repaint，因为没有发生位置变化</li>
+<li>有些情况下，比如修改了元素的样式，浏览器并不会立刻reflow或repaint一次，而是会把这样的操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow，但是在有些情况下，比如resize窗口，改变了默认的字体等，对于这些操作，浏览器会马上进行reflow</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2020/03/13/%E6%95%B4%E7%90%86%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%8D%B7/" data-id="ck7puue4200053ctwhkraha94" class="article-share-link">Share</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/13/%E5%85%B3%E4%BA%8ESEO%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于SEO优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Jing Duan<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>
